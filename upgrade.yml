@@ -1,0 +1,21 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+  - name: Update and upgrade apt packages
+    become: yes
+    apt:
+      upgrade: 'dist'
+      update_cache: yes
+      cache_valid_time: 86400 # one day
+      autoclean: yes
+      autoremove: yes
+  - name: Check that reboot-requied exists
+    stat:
+      path: /var/run/reboot-required
+    register: p
+  - debug:
+      msg: "Reboot required"
+    when: p.stat.exists
+
+#  vim: set tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0 expandtab :

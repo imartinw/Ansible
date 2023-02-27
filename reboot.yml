@@ -1,0 +1,9 @@
+---
+- hosts: pis
+  remote_user: root
+  tasks:
+  - name: Reboot all members of the group
+    become: true
+    reboot:
+
+#  vim: set tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0 expandtab :

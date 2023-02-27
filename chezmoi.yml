@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+
+  - name: Update dotfiles
+    shell: .local/bin/chezmoi update
+
+#  vim: set tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0 expandtab : 
