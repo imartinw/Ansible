@@ -1,0 +1,34 @@
+---
+- hosts: all
+  tasks:
+  - name: Install vim
+    become: yes
+    apt:
+      name: vim
+      state: latest
+  - name: Install neofetch
+    become: yes
+    apt:
+      name: neofetch
+      state: latest
+  - name: Install molly-guard
+    become: yes
+    apt:
+      name: molly-guard
+      state: latest
+  - name: Install fail2ban
+    become: yes
+    apt:
+      name: fail2ban
+      state: latest
+  - name: Install git
+    become: yes
+    apt:
+      name: git
+      state: latest
+  - name: Disable SSH root login
+    become: yes
+    lineinfile:
+      path: /etc/ssh/sshd_config
+      state: present
+      line: 'PermitRootLogin no'
