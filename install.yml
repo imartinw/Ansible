@@ -26,6 +26,11 @@
     apt:
       name: git
       state: latest
+  - name: Install unattended-upgrades
+    become: yes
+    apt:
+      name: unattended-upgrades
+      state: latest
   - name: Disable SSH root login
     become: yes
     lineinfile:
